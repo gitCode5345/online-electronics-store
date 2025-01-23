@@ -1,8 +1,17 @@
+# .env files
 .env
 .env.local
+.env.*.local
+.env.dev
 
+# Symfony folders
 /var/
-/node_modules/
 /vendor/
 
-*.log
+# Cache and logs
+/var/cache/
+/var/log/
+
+# IDE files
+.idea/
+*.iml
