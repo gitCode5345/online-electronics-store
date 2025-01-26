@@ -65,6 +65,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">Page 2</a></li>
                     </ul>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sale <span class="arrow">&#x25B6;</span></a>
                     <ul class="nav flex-column ms-3 collapse" id="saleMenu">
@@ -78,6 +79,9 @@
 
         <main class="col-9 col-md-10 content">
             {% block content %}
+            <p>Default content goes here...</p>
+            {% endblock %}
+             {% block product %}
             <p>Default content goes here...</p>
             {% endblock %}
         </main>
