@@ -4,182 +4,191 @@
 {% endblock %}
 
 {% block stylesheets %}
- <link rel="stylesheet" href="/css/main_page.css">
+    <link rel="stylesheet" href="{{ asset('css/main_page.css') }}">
  {% endblock %}
 
 {% block sidebar %}
-	<div class="logo-container">
-		<a href="#">
-			<img src="https://theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_140x40_crop_center.png?v=1651578820" alt="Modern Connectivity Logo" class="header-logo">
-		</a>
-	</div>
+    <div class="logo-container">
+        <a href="#">
+            <img src="https://theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_140x40_crop_center.png?v=1651578820" alt="Modern Connectivity Logo" class="header-logo">
+        </a>
+    </div>
+    <div class="burger-menu">
+        <div class="burger-bar"></div>
+        <div class="burger-bar"></div>
+        <div class="burger-bar"></div>
+    </div>
+    <ul class="nav flex-column first-block" style="margin-bottom: 100px;">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">
+                <i class="fas fa-home"></i>Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-store"></i>Shop
+                <span class="arrow">&#x25B6;</span>
+            </a>
+            <ul class="nav flex-column dropdown-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop Item 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop Item 2</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-file-alt"></i>Pages
+                <span class="arrow">&#x25B6;</span>
+            </a>
+            <ul class="nav flex-column dropdown-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Page 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Page 2</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-blog"></i>Blog</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-tags"></i>Sale
+                <span class="arrow">&#x25B6;</span>
+            </a>
+            <ul class="nav flex-column dropdown-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sale Item 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sale Item 2</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
 
-	<!-- Бургер-меню -->
-	<div class="burger-menu">
-		<div class="burger-bar"></div>
-		<div class="burger-bar"></div>
-		<div class="burger-bar"></div>
-	</div>
+    <ul class="nav flex-column first-block" style="margin-bottom: 100px;">
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-search"></i>Search</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-user"></i>Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-heart"></i>Wishlist</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <div class="cart-container">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge">3</span>
+                </div>
+                Cart
+            </a>
+        </li>
+    </ul>
 
-	<ul class="nav flex-column first-block" style="margin-bottom: 100px;">
-		<li class="nav-item">
-			<a class="nav-link active" href="#">
-				<i class="fas fa-home"></i>Home</a>
-		</li>
-
-		<!-- Shop with dropdown -->
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<i class="fas fa-store"></i>Shop
-				<span class="arrow">&#x25B6;</span>
-			</a>
-			<ul class="nav flex-column dropdown-menu">
-				<li class="nav-item">
-					<a class="nav-link" href="#">Shop Item 1</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Shop Item 2</a>
-				</li>
-			</ul>
-		</li>
-
-		<!-- Pages with dropdown -->
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<i class="fas fa-file-alt"></i>Pages
-				<span class="arrow">&#x25B6;</span>
-			</a>
-			<ul class="nav flex-column dropdown-menu">
-				<li class="nav-item">
-					<a class="nav-link" href="#">Page 1</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Page 2</a>
-				</li>
-			</ul>
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<i class="fas fa-blog"></i>Blog</a>
-		</li>
-
-		<!-- Sale with dropdown -->
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<i class="fas fa-tags"></i>Sale
-				<span class="arrow">&#x25B6;</span>
-			</a>
-			<ul class="nav flex-column dropdown-menu">
-				<li class="nav-item">
-					<a class="nav-link" href="#">Sale Item 1</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Sale Item 2</a>
-				</li>
-			</ul>
-		</li>
-	</ul>
-
-	<ul class="nav flex-column first-block" style="margin-bottom: 100px;">
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<i class="fas fa-search"></i>Search</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<i class="fas fa-user"></i>Login</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<i class="fas fa-heart"></i>Wishlist</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">
-				<div class="cart-container">
-					<i class="fas fa-shopping-cart"></i>
-					<span class="cart-badge">3</span>
-				</div>
-				Cart
-			</a>
-		</li>
-	</ul>
-
-	<ul
-		class="nav flex-column first-block" style="margin-bottom: 100px; position: absolute; right:50;">
-		<!-- Додайте соціальні кнопки -->
-		<li class="nav-item">
-			<a class="nav-link" href="#" style="display: flex; justify-content: space-evenly;">
-				<i class="fab fa-facebook-f" style="font-size: 20px; color: #3b5998;"></i>
-				<i class="fab fa-instagram" style="font-size: 20px; color: #e1306c;"></i>
-				<i class="fab fa-youtube" style="font-size: 20px; color: #ff0000;"></i>
-				<i class="fab fa-linkedin-in" style="font-size: 20px; color: #0077b5;"></i>
-				<i class="fab fa-pinterest-p" style="font-size: 20px; color: #e60023;"></i>
-			</a>
-		</li>
-	</ul>
+    <ul
+        class="nav flex-column first-block" style="margin-bottom: 100px; position: absolute; right:50;">
+        <li class="nav-item">
+            <a class="nav-link" href="#" style="display: flex; justify-content: space-evenly;">
+                <i class="fab fa-facebook-f" style="font-size: 20px; color: #3b5998;"></i>
+                <i class="fab fa-instagram" style="font-size: 20px; color: #e1306c;"></i>
+                <i class="fab fa-youtube" style="font-size: 20px; color: #ff0000;"></i>
+                <i class="fab fa-linkedin-in" style="font-size: 20px; color: #0077b5;"></i>
+                <i class="fab fa-pinterest-p" style="font-size: 20px; color: #e60023;"></i>
+            </a>
+        </li>
+    </ul>
 
 {% endblock %}
 
 {% block content %}
-	<div style="position: relative; text-align: center; color: white; margin-bottom: 20px;">
-		<video autoplay muted style="width: 100%; height: auto;">
-			<source src="https://cdn.shopify.com/s/files/1/0453/5035/5103/files/mobilex.mp4?v=1651578696" type="video/mp4">
-			Ваш браузер не поддерживает видео.
-		</video>
+    <div style="position: relative; text-align: center; color: white; margin-bottom: 20px;">
+        <video autoplay muted style="width: 100%; height: auto;">
+            <source src="https://cdn.shopify.com/s/files/1/0453/5035/5103/files/mobilex.mp4?v=1651578696" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
 
-		<div style="position: absolute; top: 60%; left: 15%; transform: translate(-50%, -50%);">
-			<h2 style="color: white;">NEW COLLECTION</h2>
-			<p>Bike is a part<br>of culture</p>
-			<a href="#" style="text-decoration: underline; color: white;">EXPLORE COLLECTIONS</a>
-		</div>
-	</div>
-
+        <div style="position: absolute; top: 60%; left: 15%; transform: translate(-50%, -50%); z-index: -1;">
+            <h2 style="color: white;">NEW COLLECTION</h2>
+            <p>Bike is a part<br>of culture</p>
+            <a href="#" style="text-decoration: underline; color: white;">EXPLORE COLLECTIONS</a>
+        </div>
+    </div>
 {% endblock %}
 
 {% block product %}
-	<div class="container my-5">
-		<h2 class="text-center mb-4">Featured Products</h2>
-		<div
-			class="row row-cols-1 row-cols-md-4 g-4">
-			<!-- Карточка 1 -->
-			<div class="col">
-				<div class="card h-300">
-					<img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-
-				</div>
-			</div>
-			<!-- Карточка 2 -->
-			<div class="col">
-				<div class="card h-300">
-					<img class="img-fluid photo-padding"  src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-
-				</div>
-			</div>
-		<!-- Карточка 3 -->
-		<div class="col">
-			<div class="card h-300">
-				<img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-
-			</div>
-		</div>
-		<!-- Карточка 4 -->
-
-		<div class="col">
-			<div class="card h-300">
-				<img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-			</div>
-		</div>
-        <div class="col">
-			<div class="card h-300">
-				<img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-			</div>
-		</div>
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Featured Products</h2>
+        <div
+            class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Карточка 1 -->
+            <div class="col">
+                <div class="card h-300">
+                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
+                </div>
+            </div>
+            <!-- Карточка 2 -->
+            <div class="col">
+                <div class="card h-300">
+                    <img class="img-fluid photo-padding"  src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
+                </div>
+            </div>
+        <!-- Карточка 3 -->
+            <div class="col">
+                <div class="card h-300">
+                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
+                </div>
+            </div>
+        <!-- Карточка 4 -->
+            <div class="col">
+                <div class="card h-300">
+                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-300">
+                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
+                </div>
+            </div>
         </div>
-	</div>
-</div>{% endblock %}{% block javascripts %}
+    </div>
+</div>
+{% endblock %}
+
+{% block footer_block %}
+    <div class="footer-brand mb-4 mr-lx-5 mr-2 mb-md-0 border-n">
+        <a class="footer-logo" href="https://theme905-computer-shop.myshopify.com">
+            <img class="img-fluid" src="//theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_small_crop_center@2x.png?v=1651578820" alt="Mobilex">
+        </a>
+    </div>
+    <div class="footer-links">
+        <a href="#">Delivery</a>
+        <a href="#">Legal Notice</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-payments">
+        <i class="fab fa-amazon-pay"></i>
+        <i class="fab fa-apple-pay"></i>
+        <i class="fab fa-bitcoin"></i>
+        <i class="fab fa-google-pay"></i>
+        <i class="fab fa-cc-mastercard"></i>
+        <i class="fab fa-paypal"></i>
+        <i class="fab fa-cc-visa"></i>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
 <script>
-	// Додано для відкриття і закриття меню при натисканні на бургер-меню
     const burgerMenu = document.querySelector('.burger-menu');
     const nav = document.querySelector('.nav');
 
@@ -187,8 +196,7 @@
     nav.classList.toggle('active');
     burgerMenu.classList.toggle('open');
     });
-
-    // Стрілочки для дропдаунів
+    
     document.querySelectorAll('.nav-item').forEach(item => {
     item.addEventListener('mouseenter', function () {
     let arrow = this.querySelector('.arrow');
@@ -203,5 +211,5 @@
     }
     });
     });
-</script>{% endblock %}
-
+</script>
+{% endblock %}
