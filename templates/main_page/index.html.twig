@@ -111,13 +111,13 @@
 {% endblock %}
 
 {% block content %}
-    <div style="position: relative; text-align: center; color: white; margin-bottom: 20px;">
-        <video autoplay muted style="width: 100%; height: auto;">
+    <div class="content-block-video">
+        <video autoplay muted>
             <source src="https://cdn.shopify.com/s/files/1/0453/5035/5103/files/mobilex.mp4?v=1651578696" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
 
-        <div style="position: absolute; top: 60%; left: 15%; transform: translate(-50%, -50%); z-index: -1;">
+        <div class="content-block-text">
             <h2 style="color: white;">NEW COLLECTION</h2>
             <p>Bike is a part<br>of culture</p>
             <a href="#" style="text-decoration: underline; color: white;">EXPLORE COLLECTIONS</a>
@@ -128,45 +128,25 @@
 {% block product %}
     <div class="container my-5">
         <h2 class="text-center mb-4">Featured Products</h2>
-        <div
-            class="row row-cols-1 row-cols-md-4 g-4">
-            <!-- Карточка 1 -->
-            <div class="col">
-                <div class="card h-300">
-                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card product-card">
+                        <img class="img-fluid photo-padding" src="{{ product.picture }}" alt="{{ product.name }}">
+                        <div class="card-body text-center">
+                            <a href="#"><h5 class="card-title">{{ product.name }}</h5></a>
+                            <p class="card-text">{{ product.price }} UAH</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Карточка 2 -->
-            <div class="col">
-                <div class="card h-300">
-                    <img class="img-fluid photo-padding"  src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-                </div>
-            </div>
-        <!-- Карточка 3 -->
-            <div class="col">
-                <div class="card h-300">
-                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-                </div>
-            </div>
-        <!-- Карточка 4 -->
-            <div class="col">
-                <div class="card h-300">
-                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-300">
-                    <img class="img-fluid photo-padding" src="https://theme905-computer-shop.myshopify.com/cdn/shop/products/macbook_air_1_720x.jpg?v=1651585844">
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block footer_block %}
     <div class="footer-brand mb-4 mr-lx-5 mr-2 mb-md-0 border-n">
-        <a class="footer-logo" href="https://theme905-computer-shop.myshopify.com">
+        <a class="footer-logo" href="#">
             <img class="img-fluid" src="//theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_small_crop_center@2x.png?v=1651578820" alt="Mobilex">
         </a>
     </div>

@@ -22,6 +22,27 @@ a {
     position: relative;
 }
 
+.content-block-video {
+    position: relative; 
+    text-align: center; 
+    color: white; 
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.content-block-video video {
+    width: 100%; 
+    height: auto;
+}
+
+.content-block-text {
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 .nav-item .dropdown-menu {
     display: none;
     position: absolute;
@@ -101,7 +122,7 @@ a {
 .burger-menu.open .burger-bar:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
-.photo-padding{
+.photo-padding {
     padding: 2px;
 }
 
@@ -125,9 +146,51 @@ video {
 }
 
 .footer-links a{
-    padding: 0 10px 0 0;
+    padding: 0 20px 0 0;
 }
 
 .card {
-    z-index: -1;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.product-card .card-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    z-index: 2;
+}
+
+.product-card a {
+    position: relative;
+    z-index: 3;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.col:hover .product-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+}
+
+.col:hover .product-card .card-body {
+    opacity: 1;
+    color: #333;
+}
+
+.col:hover .product-card img {
+    opacity: 0.1;
 }
