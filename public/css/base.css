@@ -16,7 +16,6 @@ body, html {
 }
 
 .content {
-    margin: 0;
     padding: 0;
 }
 
@@ -36,10 +35,6 @@ body, html {
     transform: rotate(90deg);
 }
 
-.content-wrapper {
-    flex: 1;
-}
-
 .footer {
     background-color: #fff;
     padding: 2rem;
@@ -48,4 +43,15 @@ body, html {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        height: auto;
+        position: relative;
+        width: 100%;
+    }
+    .content {
+        width: 100%;
+    }
 }

@@ -96,9 +96,9 @@
     </ul>
 
     <ul
-        class="nav flex-column first-block" style="margin-bottom: 100px; position: absolute; right:50;">
+        class="nav flex-column first-block">
         <li class="nav-item">
-            <a class="nav-link" href="#" style="display: flex; justify-content: space-evenly;">
+            <a class="nav-link" href="#" style="display: flex;">
                 <i class="fab fa-facebook-f" style="font-size: 20px; color: #3b5998;"></i>
                 <i class="fab fa-instagram" style="font-size: 20px; color: #e1306c;"></i>
                 <i class="fab fa-youtube" style="font-size: 20px; color: #ff0000;"></i>
@@ -173,23 +173,30 @@
     const nav = document.querySelector('.nav');
 
     burgerMenu.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burgerMenu.classList.toggle('open');
+        nav.classList.toggle('active');
+        burgerMenu.classList.toggle('open');
     });
-    
+
     document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('mouseenter', function () {
-    let arrow = this.querySelector('.arrow');
-    if (arrow) {
-    arrow.style.transform = 'rotate(90deg)';
-    }
+        item.addEventListener('mouseenter', function () {
+            let arrow = this.querySelector('.arrow');
+            if (arrow) {
+                arrow.style.transform = 'rotate(90deg)';
+            }
+        });
+        item.addEventListener('mouseleave', function () {
+            let arrow = this.querySelector('.arrow');
+            if (arrow) {
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        });
     });
-    item.addEventListener('mouseleave', function () {
-    let arrow = this.querySelector('.arrow');
-    if (arrow) {
-    arrow.style.transform = 'rotate(0deg)';
-    }
-    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 767) {
+            nav.classList.remove('active');
+            burgerMenu.classList.remove('open');
+        }
     });
 </script>
 {% endblock %}

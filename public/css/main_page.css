@@ -37,10 +37,14 @@ a {
 
 .content-block-text {
     position: absolute;
-    top: 60%;
-    left: 15%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .nav-item .dropdown-menu {
@@ -122,6 +126,7 @@ a {
 .burger-menu.open .burger-bar:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+
 .photo-padding {
     padding: 2px;
 }
@@ -145,7 +150,7 @@ video {
     z-index: -1;
 }
 
-.footer-links a{
+.footer-links a {
     padding: 0 20px 0 0;
 }
 
