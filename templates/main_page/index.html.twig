@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Main Page
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main_page.css') }}">
+ {% endblock %}
+
+{% block sidebar %}
+    <div class="logo-container">
+        <a href="#">
+            <img src="https://theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_140x40_crop_center.png?v=1651578820" alt="Modern Connectivity Logo" class="header-logo">
+        </a>
+    </div>
+    <div class="burger-menu">
+        <div class="burger-bar"></div>
+        <div class="burger-bar"></div>
+        <div class="burger-bar"></div>
+    </div>
+    <ul class="nav flex-column first-block" style="margin-bottom: 100px;">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">
+                <i class="fas fa-home"></i>Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-store"></i>Shop
+                <span class="arrow">&#x25B6;</span>
+            </a>
+            <ul class="nav flex-column dropdown-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop Item 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop Item 2</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-file-alt"></i>Pages
+                <span class="arrow">&#x25B6;</span>
+            </a>
+            <ul class="nav flex-column dropdown-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Page 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Page 2</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-blog"></i>Blog</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-tags"></i>Sale
+                <span class="arrow">&#x25B6;</span>
+            </a>
+            <ul class="nav flex-column dropdown-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sale Item 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sale Item 2</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="nav flex-column first-block" style="margin-bottom: 100px;">
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-search"></i>Search</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-user"></i>Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-heart"></i>Wishlist</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <div class="cart-container">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge">3</span>
+                </div>
+                Cart
+            </a>
+        </li>
+    </ul>
+
+    <ul
+        class="nav flex-column first-block">
+        <li class="nav-item">
+            <a class="nav-link" href="#" style="display: flex;">
+                <i class="fab fa-facebook-f" style="font-size: 20px; color: #3b5998;"></i>
+                <i class="fab fa-instagram" style="font-size: 20px; color: #e1306c;"></i>
+                <i class="fab fa-youtube" style="font-size: 20px; color: #ff0000;"></i>
+                <i class="fab fa-linkedin-in" style="font-size: 20px; color: #0077b5;"></i>
+                <i class="fab fa-pinterest-p" style="font-size: 20px; color: #e60023;"></i>
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    <div class="content-block-video">
+        <video autoplay muted>
+            <source src="https://cdn.shopify.com/s/files/1/0453/5035/5103/files/mobilex.mp4?v=1651578696" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+
+        <div class="content-block-text">
+            <h2 style="color: white;">NEW COLLECTION</h2>
+            <p>Bike is a part<br>of culture</p>
+            <a href="#" style="text-decoration: underline; color: white;">EXPLORE COLLECTIONS</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block product %}
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Featured Products</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card product-card">
+                        <img class="img-fluid photo-padding" src="{{ product.picture }}" alt="{{ product.name }}">
+                        <div class="card-body text-center">
+                            <a href="#"><h5 class="card-title">{{ product.name }}</h5></a>
+                            <p class="card-text">{{ product.price }} UAH</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer_block %}
+    <div class="footer-brand mb-4 mr-lx-5 mr-2 mb-md-0 border-n">
+        <a class="footer-logo" href="#">
+            <img class="img-fluid" src="//theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_small_crop_center@2x.png?v=1651578820" alt="Mobilex">
+        </a>
+    </div>
+    <div class="footer-links">
+        <a href="#">Delivery</a>
+        <a href="#">Legal Notice</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-payments">
+        <i class="fab fa-amazon-pay"></i>
+        <i class="fab fa-apple-pay"></i>
+        <i class="fab fa-bitcoin"></i>
+        <i class="fab fa-google-pay"></i>
+        <i class="fab fa-cc-mastercard"></i>
+        <i class="fab fa-paypal"></i>
+        <i class="fab fa-cc-visa"></i>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    const burgerMenu = document.querySelector('.burger-menu');
+    const nav = document.querySelector('.nav');
+
+    burgerMenu.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        burgerMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            let arrow = this.querySelector('.arrow');
+            if (arrow) {
+                arrow.style.transform = 'rotate(90deg)';
+            }
+        });
+        item.addEventListener('mouseleave', function () {
+            let arrow = this.querySelector('.arrow');
+            if (arrow) {
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 767) {
+            nav.classList.remove('active');
+            burgerMenu.classList.remove('open');
+        }
+    });
+</script>
+{% endblock %}
