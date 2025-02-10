@@ -13,11 +13,31 @@
             <img src="https://theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_140x40_crop_center.png?v=1651578820" alt="Modern Connectivity Logo" class="header-logo">
         </a>
     </div>
-    <div class="burger-menu">
-        <div class="burger-bar"></div>
-        <div class="burger-bar"></div>
-        <div class="burger-bar"></div>
+    <div class="container">
+        <div class="menu">
+            <div class="logo-menu">
+                <div class="burger-menu">
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
+                </div>
+                <div class="main-logo">
+                    <div class="block-logo">
+                        <div class="logo-image">
+                            <a href="#" class="header_logo">
+                                <img src="//theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_140x40_crop_center.png?v=1651578820" alt="logo" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto col-sm-auto d-flex justify-content-between justify-content-end header_items_wrapper" style="gap: 10px;">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
     </div>
+
     <ul class="nav flex-column first-block" style="margin-bottom: 100px;">
         <li class="nav-item">
             <a class="nav-link active" href="#">
@@ -132,7 +152,7 @@
             {% for product in products %}
                 <div class="col">
                     <div class="card product-card">
-                        <img class="img-fluid photo-padding" src="{{ product.picture }}" alt="{{ product.name }}">
+                        <img class="img-fluid photo-padding" src="{{ product.main_picture }}" alt="{{ product.name }}">
                         <div class="card-body text-center">
                             <a href="#"><h5 class="card-title">{{ product.name }}</h5></a>
                             <p class="card-text">{{ product.price }} UAH</p>

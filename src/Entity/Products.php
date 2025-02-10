@@ -32,7 +32,10 @@ class Products
     private ?int $stock = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $picture = null;
+    private ?string $main_picture = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $pictures = null;
 
     #[ORM\ManyToOne(targetEntity: Suppliers::class)]
     #[ORM\JoinColumn(name: "supplier_id", referencedColumnName: "id", nullable: false)]
@@ -110,14 +113,26 @@ class Products
         return $this;
     }
 
-    public function getPicture(): ?string
+    public function getmain_picture(): ?string
     {
-        return $this->picture;
+        return $this->main_picture;
     }
 
-    public function setPicture(string $picture): static
+    public function setmain_picture(string $m_picture): static
     {
-        $this->picture = $picture;
+        $this->main_picture = $m_picture;
+
+        return $this;
+    }
+
+    public function getPictures() : ?string
+    {
+        return $this->pictures;
+    }
+
+    public function setPictures(string $pics): static
+    {
+        $this->pictures = $pics;
 
         return $this;
     }
