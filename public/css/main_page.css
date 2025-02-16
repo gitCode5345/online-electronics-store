@@ -1,17 +1,17 @@
-.custom-content {
-    color: #333;
-}
-
 .arrow {
     margin-left: 10px;
     transition: transform 0.3s;
 }
 
-a {
+a, .first-block a{
     font-family: 'Josefin Sans', sans-serif;
     text-transform: capitalize;
     color: #121212;
     text-decoration: none;
+}
+
+.first-block {
+    margin-bottom: 100px;
 }
 
 .collapsed .arrow {
@@ -94,12 +94,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.header-logo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
 }
 
 .burger-menu {

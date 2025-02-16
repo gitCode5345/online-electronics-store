@@ -16,26 +16,14 @@ body, html {
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     padding: 0;
 }
 
-.first-block a {
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: capitalize;
-    color: #121212;
-    text-decoration: none;
-}
-
-.arrow {
-    margin-left: 10px;
-    transition: transform 0.3s;
-}
-
-.collapsed .arrow {
-    transform: rotate(90deg);
-}
-
 .footer {
+    width: 100%;
     background-color: #fff;
     padding: 2rem;
     text-align: center;
@@ -53,5 +41,8 @@ body, html {
     }
     .content {
         width: 100%;
+    }
+    .footer {
+        justify-content: center;
     }
 }
