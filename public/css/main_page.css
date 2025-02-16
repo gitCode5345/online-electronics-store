@@ -1,17 +1,17 @@
-.custom-content {
-    color: #333;
-}
-
 .arrow {
     margin-left: 10px;
     transition: transform 0.3s;
 }
 
-a {
+a, .first-block a{
     font-family: 'Josefin Sans', sans-serif;
     text-transform: capitalize;
     color: #121212;
     text-decoration: none;
+}
+
+.first-block {
+    margin-bottom: 100px;
 }
 
 .collapsed .arrow {
@@ -96,12 +96,6 @@ a {
     justify-content: center;
 }
 
-.header-logo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
 .burger-menu {
     display: none;
     cursor: pointer;
@@ -131,6 +125,26 @@ a {
     padding: 2px;
 }
 
+.menu {
+    display: none;
+    align-items: center;
+}
+
+.logo-menu {
+    display: flex;
+    align-items: center;
+}
+
+.main-logo {
+    margin-left: 15px !important;
+}
+
+.block-logo {
+    margin-top: 7px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
 @media(max-width: 768px) {
     .nav {
         display: none;
@@ -142,6 +156,13 @@ a {
     }
     .burger-menu {
         display: block;
+    }
+    .logo-container {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-between;
     }
 }
 
