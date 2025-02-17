@@ -6,128 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/main_page.css') }}">
  {% endblock %}
 
-{% block sidebar %}
-    <div class="logo-container">
-        <a href="#">
-            <img src="https://theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_140x40_crop_center.png?v=1651578820" alt="Logo">
-        </a>
-    </div>
-    <div class="container">
-        <div class="menu">
-            <div class="logo-menu">
-                <div class="burger-menu">
-                    <div class="burger-bar"></div>
-                    <div class="burger-bar"></div>
-                    <div class="burger-bar"></div>
-                </div>
-                <div class="main-logo">
-                    <div class="block-logo">
-                        <div class="logo-image">
-                            <a href="#" class="header_logo">
-                                <img src="//theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_140x40_crop_center.png?v=1651578820" alt="Logo" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto col-sm-auto d-flex justify-content-between justify-content-end header_items_wrapper" style="gap: 10px;">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="#"><i class="fas fa-user"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <ul class="nav flex-column first-block">
-        <li class="nav-item">
-            <a class="nav-link active" href="#">
-                <i class="fas fa-home"></i>Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-store"></i>Shop
-                <span class="arrow">&#x25B6;</span>
-            </a>
-            <ul class="nav flex-column dropdown-menu">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Shop Item 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Shop Item 2</a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-file-alt"></i>Pages
-                <span class="arrow">&#x25B6;</span>
-            </a>
-            <ul class="nav flex-column dropdown-menu">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Page 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Page 2</a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-blog"></i>Blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-tags"></i>Sale
-                <span class="arrow">&#x25B6;</span>
-            </a>
-            <ul class="nav flex-column dropdown-menu">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sale Item 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sale Item 2</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-
-    <ul class="nav flex-column first-block">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-search"></i>Search</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-user"></i>Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-heart"></i>Wishlist</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <div class="cart-container">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge">3</span>
-                </div>
-                Cart
-            </a>
-        </li>
-    </ul>
-
-    <ul
-        class="nav flex-column first-block">
-        <li class="nav-item">
-            <a class="nav-link" href="#" style="display: flex;">
-                <i class="fab fa-facebook-f" style="font-size: 20px; color: #3b5998;"></i>
-                <i class="fab fa-instagram" style="font-size: 20px; color: #e1306c;"></i>
-                <i class="fab fa-youtube" style="font-size: 20px; color: #ff0000;"></i>
-                <i class="fab fa-linkedin-in" style="font-size: 20px; color: #0077b5;"></i>
-                <i class="fab fa-pinterest-p" style="font-size: 20px; color: #e60023;"></i>
-            </a>
-        </li>
-    </ul>
-
-{% endblock %}
+{% block sidebar %} {{ parent() }} {% endblock %}
 
 {% block content %}
     <div class="content-block-video">
@@ -151,9 +30,11 @@
             {% for product in products %}
                 <div class="col">
                     <div class="card product-card">
-                        <img class="img-fluid photo-padding" src="{{ product.main_picture }}" alt="{{ product.name }}">
+                        <img class="img-fluid photo-padding" src="{{ asset(product.main_picture) }}" alt="{{ product.name }}">
                         <div class="card-body text-center">
-                            <a href="#"><h5 class="card-title">{{ product.name }}</h5></a>
+                            <a href="{{ path('product_show', { id: product.id }) }}">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                            </a>
                             <p class="card-text">{{ product.price }} UAH</p>
                         </div>
                     </div>
@@ -163,28 +44,7 @@
     </div>
 {% endblock %}
 
-{% block footer_block %}
-    <div class="footer-brand mb-4 mr-lx-5 mr-2 mb-md-0 border-n">
-        <a class="footer-logo" href="#">
-            <img class="img-fluid" src="//theme905-computer-shop.myshopify.com/cdn/shop/files/logo_85e8c0fb-6fe4-472c-bb57-12b9152508d0_small_crop_center@2x.png?v=1651578820" alt="Logo">
-        </a>
-    </div>
-    <div class="footer-links">
-        <a href="#">Delivery</a>
-        <a href="#">Legal Notice</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
-    </div>
-    <div class="footer-payments">
-        <i class="fab fa-amazon-pay"></i>
-        <i class="fab fa-apple-pay"></i>
-        <i class="fab fa-bitcoin"></i>
-        <i class="fab fa-google-pay"></i>
-        <i class="fab fa-cc-mastercard"></i>
-        <i class="fab fa-paypal"></i>
-        <i class="fab fa-cc-visa"></i>
-    </div>
-{% endblock %}
+{% block footer_block %} {{ parent() }} {% endblock %}
 
 {% block javascripts %}
 <script>

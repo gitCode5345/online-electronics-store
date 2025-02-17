@@ -3,23 +3,8 @@
     transition: transform 0.3s;
 }
 
-a, .first-block a{
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: capitalize;
-    color: #121212;
-    text-decoration: none;
-}
-
-.first-block {
-    margin-bottom: 100px;
-}
-
 .collapsed .arrow {
     transform: rotate(90deg);
-}
-
-.nav-item {
-    position: relative;
 }
 
 .content-block-video {
@@ -47,102 +32,8 @@ a, .first-block a{
     font-weight: bold;
 }
 
-.nav-item .dropdown-menu {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    margin-left: 10px;
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 9999;
-}
-
-.nav-item:hover .dropdown-menu {
-    display: block;
-    z-index: 10;
-}
-
-.nav-item i {
-    margin-right: 8px;
-}
-
-.cart-container {
-    position: relative;
-    display: inline-block;
-}
-
-.cart-badge {
-    position: absolute;
-    top: 2px;
-    right: -65px;
-    background-color: #ff5733;
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.logo-container {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.burger-menu {
-    display: none;
-    cursor: pointer;
-}
-
-.burger-bar {
-    width: 30px;
-    height: 4px;
-    background-color: #333;
-    margin: 5px 0;
-    transition: all 0.3s ease-in-out;
-}
-
-.burger-menu.open .burger-bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger-menu.open .burger-bar:nth-child(2) {
-    opacity: 0;
-}
-
-.burger-menu.open .burger-bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
 .photo-padding {
     padding: 2px;
-}
-
-.menu {
-    display: none;
-    align-items: center;
-}
-
-.logo-menu {
-    display: flex;
-    align-items: center;
-}
-
-.main-logo {
-    margin-left: 15px !important;
-}
-
-.block-logo {
-    margin-top: 7px;
-    margin-bottom: 8px;
-    text-align: center;
 }
 
 @media(max-width: 768px) {
@@ -169,10 +60,6 @@ a, .first-block a{
 video {
     position: relative;
     z-index: -1;
-}
-
-.footer-links a {
-    padding: 0 20px 0 0;
 }
 
 .card {
