@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block sidebar %}{% endblock sidebar %}
+{% block off_sidebar %}{% endblock off_sidebar %}
+{% block off_footer %}{% endblock off_footer %}
+{% block product %}{% endblock product %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-center">Edit Category</h2>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+
+        <form action="{{ path('edit_categories') }}" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col">
+                    <label for="category">Виберіть категорію для редагування:</label>
+                    <select name="category" required class="form-select">
+                        {% for cat in categories %}
+                            <option value="{{ cat.id }}">{{ cat.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Select</button>
+                </div>
+            </div>
+        </form>
+
+        {% if app.request.get('category') %}
+            <form action="{{ path('edit_categories') }}" method="post" enctype="multipart/form-data" class="mt-4">
+                <input type="hidden" name="category" value="{{ app.request.request.get('category') }}">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Нова назва категорії:</label>
+                    <input type="text" name="name" value="{{ category.name|default('') }}" required class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="slug" class="form-label">Новий slug категорії:</label>
+                    <input type="text" name="slug" value="{{ category.slug|default('') }}" required class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-success">Зберегти зміни</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock content %}
