@@ -1,0 +1,95 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Edit Categories or Suppliers {% endblock %}
+
+{% block sidebar %}{% endblock sidebar %}
+{% block off_sidebar %}{% endblock off_sidebar %}
+{% block off_footer %}{% endblock off_footer %}
+{% block product %}{% endblock product %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-center">Редагування</h2>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+
+        <form action="{{ path('edit_entity') }}" method="post">
+            <div class="row">
+                <div class="col">
+                    <label for="type">Виберіть, що редагувати:</label>
+                    <select name="type" required class="form-select" id="typeSelect">
+                        <option value="">Оберіть</option>
+                        <option value="category" {{ selectedType == 'category' ? 'selected' : '' }}>Категорію</option>
+                        <option value="supplier" {{ selectedType == 'supplier' ? 'selected' : '' }}>Постачальника</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="entity">Оберіть елемент:</label>
+                    <select name="entity" required class="form-select" id="entitySelect">
+                        {% if selectedType == 'category' %}
+                            {% for cat in categories %}
+                                <option value="{{ cat.id }}" {{ selectedEntity and selectedEntity.id == cat.id ? 'selected' : '' }}>
+                                    {{ cat.name }}
+                                </option>
+                            {% endfor %}
+                        {% elseif selectedType == 'supplier' %}
+                            {% for sup in suppliers %}
+                                <option value="{{ sup.id }}" {{ selectedEntity and selectedEntity.id == sup.id ? 'selected' : '' }}>
+                                    {{ sup.name }}
+                                </option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Обрати</button>
+                </div>
+            </div>
+        </form>
+
+        {% if selectedEntity %}
+            <form action="{{ path('edit_entity') }}" method="post" enctype="multipart/form-data" class="mt-4">
+                <input type="hidden" name="type" value="{{ selectedType }}">
+                <input type="hidden" name="entity" value="{{ selectedEntity.id }}">
+                <input type="hidden" name="save" value="1">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Назва:</label>
+                    <input type="text" name="name" value="{{ selectedEntity.name|default('')|e }}" required class="form-control">
+                </div>
+
+                {% if selectedType == 'category' %}
+                    <div class="mb-3">
+                        <label for="slug" class="form-label">Slug:</label>
+                        <input type="text" name="slug" value="{{ selectedEntity.slug|default('')|e }}" required class="form-control">
+                    </div>
+                {% elseif selectedType == 'supplier' %}
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Адреса:</label>
+                        <input type="text" name="address" value="{{ selectedEntity.address|default('')|e }}" required class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact" class="form-label">Контактна інформація:</label>
+                        <input type="text" name="contact" value="{{ selectedEntity.contact|default('')|e }}" required class="form-control">
+                    </div>
+                {% endif %}
+
+                <button type="submit" class="btn btn-success">Зберегти зміни</button>
+            </form>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('typeSelect').addEventListener('change', function() {
+            this.form.submit();
+        });
+        document.getElementById('entitySelect').addEventListener('change', function() {
+            this.form.submit();
+        });
+    </script>
+{% endblock %}

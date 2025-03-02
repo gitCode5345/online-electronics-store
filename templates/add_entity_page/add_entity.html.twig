@@ -1,0 +1,126 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Add Category or Supplier {% endblock title %}
+
+{% block sidebar %}{% endblock sidebar %}
+{% block off_sidebar %}{% endblock off_sidebar %}
+{% block off_footer %}{% endblock off_footer %}
+{% block product %}{% endblock product %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-center">Додавання категорії або постачальника</h2>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+
+        <form action="{{ path('add_entity') }}" method="post" enctype="multipart/form-data">
+            <div class="row mt-4">
+                <div class="col">
+                    <label for="entity_type" class="form-label">Оберіть що саме Ви хочете додати</label>
+                    <select class="form-control" id="entity_type" name="entity_type" onchange="toggleFields()">
+                        <option value="" disabled selected>Select entity</option>
+                        <option value="category">Категорію</option>
+                        <option value="supplier">Постачальника</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="category_fields">
+                <div class="row mt-4">
+                    <div class="col">
+                        <label for="category_name" class="form-label">Назва</label>
+                        <input type="text" class="form-control" id="category_name" name="category_name" required>
+                    </div>
+                    <div class="col">
+                        <label for="category_slug" class="form-label">Скорочення для посилання</label>
+                        <input type="text" class="form-control" id="category_slug" name="category_slug" required>
+                    </div>
+                </div>
+            </div>
+
+            <div id="supplier_fields">
+                <div class="row mt-4">
+                    <div class="col">
+                        <label for="supplier_name" class="form-label">Назва</label>
+                        <input type="text" class="form-control" id="supplier_name" name="supplier_name" required>
+                    </div>
+                    <div class="col">
+                        <label for="supplier_address" class="form-label">Адреса</label>
+                        <input type="text" class="form-control" id="supplier_address" name="supplier_address" required>
+                    </div>
+                    <div class="col">
+                        <label for="supplier_contact" class="form-label">Контакти</label>
+                        <input type="text" class="form-control" id="supplier_contact" name="supplier_contact" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col mt-4 d-flex flex-row-reverse">
+                    <button type="submit" class="btn btn-primary">Додати</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleFields() {
+            let entityType = document.getElementById("entity_type").value;
+    
+            let categoryFields = document.getElementById("category_fields");
+            let supplierFields = document.getElementById("supplier_fields");
+    
+            if (entityType === "category") {
+                categoryFields.style.display = "block";
+                supplierFields.style.display = "none";
+                clearInputs(supplierFields);
+                toggleInputState(supplierFields, false);
+                toggleInputState(categoryFields, true);
+            } else if (entityType === "supplier") {
+                categoryFields.style.display = "none";
+                supplierFields.style.display = "block";
+                clearInputs(categoryFields);
+                toggleInputState(categoryFields, false);
+                toggleInputState(supplierFields, true);
+            } else {
+                categoryFields.style.display = "none";
+                supplierFields.style.display = "none";
+                clearInputs(categoryFields);
+                clearInputs(supplierFields);
+                toggleInputState(categoryFields, false);
+                toggleInputState(supplierFields, false);
+            }
+        }
+    
+        function clearInputs(container) {
+            let inputs = container.querySelectorAll("input");
+            inputs.forEach(input => {
+                input.value = "";
+            });
+        }
+    
+        function toggleInputState(container, enabled) {
+            let inputs = container.querySelectorAll("input");
+            inputs.forEach(input => {
+                input.disabled = !enabled;
+            });
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            let categoryFields = document.getElementById("category_fields");
+            let supplierFields = document.getElementById("supplier_fields");
+    
+            categoryFields.style.display = "none";
+            supplierFields.style.display = "none";
+            clearInputs(categoryFields);
+            clearInputs(supplierFields);
+            toggleInputState(categoryFields, false);
+            toggleInputState(supplierFields, false);
+        });
+    </script>    
+{% endblock content %}
